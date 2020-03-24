@@ -13,12 +13,12 @@ namespace learn_cqrs.Domain.Repository
         {
             _context = context;
         }
-        public async Task SaveChangeAsync()
+        public async Task CompleteAsync()
         {
             await _context.SaveChangesAsync();
         }
 
-        public async Task SaveChangeAsync(CancellationToken cancel)
+        public async Task CompleteAsync(CancellationToken cancel)
         {
             await _context.SaveChangesAsync(cancel);
         }

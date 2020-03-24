@@ -8,7 +8,7 @@ namespace learn_cqrs.Domain.Repository
 {
     public interface IUnitOfWork
     {
-        Task SaveChangeAsync();
-        Task SaveChangeAsync(CancellationToken cancel);
+        Task CompleteAsync();
+        Task CompleteAsync(CancellationToken cancel);
     }
 }

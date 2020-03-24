@@ -18,9 +18,10 @@ namespace learn_cqrs.Domain.Repository
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<User>().HasData(
                 new User { Id = 1, Name = "paul", Age = 63 },
-                  new User { Id = 1, Name = "Michel", Age = 33 },
-                   new User { Id = 1, Name = "Eugene", Age = 21 }
+                  new User { Id = 2, Name = "Michel", Age = 33 },
+                   new User { Id = 3, Name = "Eugene", Age = 21 }
             );
+            modelBuilder.Entity<User>().Property(p => p.Id).ValueGeneratedOnAdd();
         }
     }
 }
