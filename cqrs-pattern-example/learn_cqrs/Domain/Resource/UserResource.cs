@@ -8,10 +8,11 @@ namespace learn_cqrs.Domain.Resource
 {
     public class UserResource
     {
-        [MaxLength(30)]
+        [MaxLength(100)]
         [Required]
         public string Name { get; set; }
+        [Required]
         [Range(1, 100)]
-        public int Age { get; set; }
+        public byte Age { get; set; }
     }
 }

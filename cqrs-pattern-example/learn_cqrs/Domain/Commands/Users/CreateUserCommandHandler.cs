@@ -13,9 +13,10 @@ namespace learn_cqrs.Domain.Commands.Users
     {
         private readonly IUserRepository _userRepository;
         private readonly IUnitOfWork _unitOfWork;
-        public CreateUserCommandHandler(IUserRepository userRepository)
+        public CreateUserCommandHandler(IUserRepository userRepository, IUnitOfWork unitOfWork)
         {
             _userRepository = userRepository;
+            _unitOfWork = unitOfWork;
         }
         public async Task<User> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
