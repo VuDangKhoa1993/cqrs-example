@@ -36,7 +36,7 @@ namespace learn_cqrs.Controllers
         public async Task<IActionResult> GetAsync(int id)
         {
             var user = _mediator.Send(new GetUserQuery(id));
-            if(user == null)
+            if (user == null)
             {
                 return NotFound();
             }
@@ -55,7 +55,8 @@ namespace learn_cqrs.Controllers
         [HttpPut("{id}")]
         [ProducesResponseType(typeof(User), 200)]
         [ProducesResponseType(typeof(ErrorResources), 400)]
-        public async Task<IActionResult> PutAsync(int id, [FromBody]UserResource userResource) {
+        public async Task<IActionResult> PutAsync(int id, [FromBody]UserResource userResource)
+        {
             var user = await _mediator.Send(new UpdateUserCommand(id, userResource.Name, userResource.Age));
             return ProduceResponse(user);
         }
@@ -71,7 +72,7 @@ namespace learn_cqrs.Controllers
 
         private IActionResult ProduceResponse(Response<User> response)
         {
-            if(!response.Success)
+            if (!response.Success)
             {
                 return BadRequest(response.Message);
             }
